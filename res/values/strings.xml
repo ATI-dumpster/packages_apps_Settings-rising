@@ -14,6 +14,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="afterlife_maintainer">Afterlife Keeper</string>
+    <string name="maintainer_git_username">null</string>
+    <string name="maintainer_tele_username">null</string>
+    <string name="maintainer_ig_username">null</string>
+    <string name="maintainer_fb_username">null</string>
+
     <!-- Strings for Dialog yes button -->
     <string name="yes">"Yes"</string>
     <!-- Strings for Dialog no button -->
