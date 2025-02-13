@@ -15,6 +15,9 @@
 -->
 
 <resources>
+    <dimen name="al_card_radius_big">20dp</dimen>
+    <dimen name="al_card_radius">0dp</dimen>
+
     <dimen name="match_parent">-1px</dimen>
 
     <dimen name="app_icon_size">40dip</dimen>

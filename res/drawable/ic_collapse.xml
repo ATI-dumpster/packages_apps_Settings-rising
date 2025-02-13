@@ -23,8 +23,8 @@
             <objectAnimator
                 android:propertyName="pathData"
                 android:duration="300"
-                android:valueFrom="M8.52,21.90L15.88,12.05L8.67,2.28"
-                android:valueTo="M2.15,8.75L12.05,16.04L21.77,8.75"
+                android:valueTo="M8.52,21.90L15.88,12.05L8.67,2.28"
+                android:valueFrom="M2.15,8.75L12.05,16.04L21.77,8.75"
                 android:valueType="pathType"
                 android:interpolator="@android:anim/linear_interpolator"/>
         </aapt:attr>

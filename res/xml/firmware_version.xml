@@ -21,6 +21,15 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
+    <!-- AfterLife Maintainer  -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="afterlife_maintainer"
+        android:layout="@layout/afterlife_maintainer" 
+        android:title="@string/afterlife_maintainer"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.afterlifeMaintainerController"/>
+
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
