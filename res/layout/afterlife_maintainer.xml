@@ -18,297 +18,315 @@
     android:layout_marginTop="15dp"
     android:paddingStart="?android:listPreferredItemPaddingEnd"
     android:paddingEnd="?android:listPreferredItemPaddingEnd"
-    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <androidx.cardview.widget.CardView 
+    
+    <androidx.cardview.widget.CardView
         android:id="@+id/base_layout"
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content" 
-        app:cardCornerRadius="@dimen/al_card_radius_big"
-        app:layout_constraintBottom_toBottomOf="parent" 
-        app:layout_constraintEnd_toEndOf="parent" 
+        android:layout_width="fill_parent"
+        android:layout_marginVertical="10.0dip"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="28.0dip"
+        app:cardElevation="0.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <androidx.constraintlayout.widget.ConstraintLayout 
-            android:layout_width="fill_parent" 
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" 
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
-
-            <LinearLayout 
-                android:orientation="vertical" 
-                android:id="@+id/hidden_view" 
-                app:layout_constraintTop_toBottomOf="@+id/fixed_layout"
+            
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/hidden_view"
+                android:background="@color/card_bg"
                 android:visibility="gone"
-                android:layout_width="fill_parent" 
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/bg_card" 
-                app:layout_constraintBottom_toBottomOf="parent" 
-                app:layout_constraintEnd_toEndOf="parent" 
-                app:layout_constraintStart_toStartOf="parent">
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fixed_layout">
+                
                 <LinearLayout
                     android:gravity="center"
                     android:layout_gravity="center"
-                    android:orientation="vertical" 
+                    android:orientation="vertical"
                     android:padding="16.0dip"
-                    android:layout_width="fill_parent" 
-                    android:layout_height="wrap_content" >
-
-                    <FrameLayout 
-                        android:paddingBottom="16.0dip" 
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                    
+                    <FrameLayout
+                        android:paddingBottom="16.0dip"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
-
-                        <LinearLayout 
-                            android:orientation="horizontal" 
-                            android:layout_width="fill_parent" 
+                        
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content">
-
                             <com.android.settings.utils.CircularImageView 
-                                android:layout_gravity="start|center" 
-                                android:id="@+id/mProfile" 
+                                android:layout_gravity="start|center"
+                                android:id="@+id/mProfile"
                                 android:layout_width="80.0dip"
-                                android:layout_height="80.0dip" 
-                                android:src="@drawable/maintainer_img"  
+                                android:layout_height="80.0dip"
+                                android:src="@drawable/maintainer_img"
                                 app:civ_border="true"
                                 app:civ_border_color="@*android:color/accent_device_default_light"
-                                app:civ_border_width="0.5dp" />
-
-                            <LinearLayout 
-                                android:gravity="start|center" 
-                                android:layout_gravity="start|center" 
+                                app:civ_border_width="0.5dip"/>
+                                
+                            <LinearLayout
+                                android:gravity="start|center"
+                                android:layout_gravity="start|center"
                                 android:orientation="vertical"
-                                android:paddingStart="16.0dip"
-                                android:layout_width="wrap_content" 
-                                android:layout_height="wrap_content" >
-
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="16.0dip">
+                                
                                 <TextView
-                                    android:textAppearance="?android:attr/textAppearanceLarge" 
-                                    android:layout_marginStart="16.0dip" 
+                                    android:textAppearance="?android:textAppearanceLarge"
                                     android:textSize="36.0sp"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="start|center"
                                     android:id="@+id/maintainer_name_expanded"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="start|center"       
-                                    android:textStyle="bold"/>
-
-                                <TextView 
+                                    android:layout_marginStart="16.0dip"/>
+                                    
+                                <TextView
+                                    android:textColor="?android:textColorSecondary"
+                                    android:layout_gravity="start"
                                     android:id="@+id/device_model"
-                                    android:layout_marginStart="16.0dip" 
-                                    android:textColor="?android:textColorSecondary" 
-                                    android:layout_gravity="start" 
-                                    style="@style/PreferenceSummaryTextStyle"
-                                    android:layout_width="wrap_content" 
-                                    android:layout_height="wrap_content" />
-
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16.0dip"
+                                    style="@style/PreferenceSummaryTextStyle"/>
+                                    
                             </LinearLayout>
-
+                            
                         </LinearLayout>
-
+                        
                     </FrameLayout>
-                    <TextView 
-                        android:textColor="?android:textColorSecondary" 
+                    
+                    <TextView
+                        android:textColor="?android:textColorSecondary"
                         android:layout_gravity="start"
-                        style="@style/PreferenceSummaryTextStyle" 
-                        android:layout_width="wrap_content" 
-                        android:layout_height="wrap_content" 
-                        android:layout_marginBottom="10dp"
-                        android:text="Contact me on" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout 
-                            android:id="@+id/github" 
-                            android:orientation="vertical" 
-                            android:layout_width="fill_parent" 
+                        android:layout_marginBottom="10.0dip"
+                        android:text="Contact me on"
+                        style="@style/PreferenceSummaryTextStyle"/>
+                        
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/github"
+                            android:background="@drawable/al_bg_single"
+                            android:padding="10.0dip"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.0"
-                            android:padding="10dp"
-                            android:layout_marginEnd="5dp"
-                            android:background="@drawable/al_bg_single"
-                            android:backgroundTint="?android:colorBackgroundFloating"  >
-
-                            <ImageView 
-                                android:layout_gravity="center" 
-                                android:layout_width="24.0dip"
-                                android:layout_height="24.0dip" 
-                                android:src="@drawable/github"
-                                android:tint="#ff3b5998" />
-
-                            <TextView 
-                                android:layout_gravity="center" 
-                                android:textSize="12dp"
-                                android:textAppearance="?android:textAppearanceListItemSmall"
-                                android:layout_width="wrap_content" 
-                                android:layout_height="wrap_content"
-                                android:text="Github" />
-
-                        </LinearLayout>
-
-                        <LinearLayout 
-                            android:id="@+id/telegram" 
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent" 
-                            android:layout_height="wrap_content" 
-                            android:layout_weight="1.0"
-                            android:padding="10dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginEnd="5dp"
-                            android:background="@drawable/al_bg_single"
-                            android:backgroundTint="?android:colorBackgroundFloating"  >
-
+                            android:layout_marginEnd="5.0dip"
+                            android:backgroundTint="?android:colorBackgroundFloating">
+                            
                             <ImageView
                                 android:layout_gravity="center"
-                                android:layout_width="24.0dip" 
-                                android:layout_height="24.0dip" 
-                                android:src="@drawable/telegram" 
-                                android:tint="#ff0088cc" />
-
-                            <TextView 
-                                android:layout_gravity="center" 
-                                android:textSize="12dp"
-                                android:textAppearance="?android:textAppearanceListItemSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" 
-                                android:text="Telegram" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/facebook"
-                            android:orientation="vertical" 
-                            android:layout_width="fill_parent" 
-                            android:layout_height="wrap_content" 
-                            android:layout_weight="1.0"
-                            android:padding="10dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@drawable/al_bg_single"
-                            android:backgroundTint="?android:colorBackgroundFloating" >
-
-                            <ImageView 
-                                android:layout_gravity="center"  
                                 android:layout_width="24.0dip"
-                                android:layout_height="24.0dip" 
-                                android:src="@drawable/facebook" 
-                                android:tint="#ff3b5998" />
-
-                            <TextView 
-                                android:textAppearance="?android:textAppearanceListItemSmall" 
-                                android:layout_width="wrap_content" 
-                                android:layout_height="wrap_content" 
-                                android:text="Facebook" 
-                                android:layout_gravity="center"  
-                                android:textSize="12dp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout 
-                            android:id="@+id/instagram"
-                            android:orientation="vertical" 
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content" 
-                            android:layout_weight="1.0"
-                            android:padding="10dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@drawable/al_bg_single"
-                            android:backgroundTint="?android:colorBackgroundFloating" >
-
-                            <ImageView 
-                                android:layout_gravity="center"
-                                android:layout_width="24.0dip"
-                                android:layout_height="24.0dip" 
-                                android:src="@drawable/instagram"
-                                android:tint="#ff3b5998" />
-
+                                android:layout_height="24.0dip"
+                                android:src="@drawable/github"
+                                android:tint="?android:colorAccent"/>
+                                
                             <TextView
-                                android:textAppearance="?android:textAppearanceListItemSmall" 
+                                android:textAppearance="?android:textAppearanceListItemSmall"
+                                android:textSize="12.0dip"
+                                android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Instagram" 
-                                android:layout_gravity="center"   
-                                android:textSize="12dp"/>
-
+                                android:text="Github"/>
+                                
                         </LinearLayout>
-
+                        
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/telegram"
+                            android:background="@drawable/al_bg_single"
+                            android:padding="10.0dip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginStart="5.0dip"
+                            android:layout_marginEnd="5.0dip"
+                            android:backgroundTint="?android:colorBackgroundFloating">
+                            
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:layout_width="24.0dip"
+                                android:layout_height="24.0dip"
+                                android:src="@drawable/telegram"
+                                android:tint="?android:colorAccent"/>
+                                
+                            <TextView
+                                android:textAppearance="?android:textAppearanceListItemSmall"
+                                android:textSize="12.0dip"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Telegram"/>
+                                
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/facebook"
+                            android:background="@drawable/al_bg_single"
+                            android:padding="10.0dip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginStart="5.0dip"
+                            android:layout_marginEnd="5.0dip"
+                            android:backgroundTint="?android:colorBackgroundFloating">
+                            
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:layout_width="24.0dip"
+                                android:layout_height="24.0dip"
+                                android:src="@drawable/facebook"
+                                android:tint="?android:colorAccent"/>
+                                
+                            <TextView
+                                android:textAppearance="?android:textAppearanceListItemSmall"
+                                android:textSize="12.0dip"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Facebook"/>
+                                
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/instagram"
+                            android:background="@drawable/al_bg_single"
+                            android:padding="10.0dip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginStart="5.0dip"
+                            android:backgroundTint="?android:colorBackgroundFloating">
+                            
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:layout_width="24.0dip"
+                                android:layout_height="24.0dip"
+                                android:src="@drawable/instagram"
+                                android:tint="?android:colorAccent"/>
+                                
+                            <TextView
+                                android:textAppearance="?android:textAppearanceListItemSmall"
+                                android:textSize="12.0dip"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Instagram"/>
+                                
+                        </LinearLayout>
+                        
                     </LinearLayout>
-
+                    
                 </LinearLayout>
-
+                
             </LinearLayout>
-
+            
             <LinearLayout
-                android:id="@+id/fixed_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="?android:attr/listPreferredItemHeightSmall"
                 android:gravity="center_vertical"
-                android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
-                android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-                android:paddingRight="?android:attr/listPreferredItemPaddingRight"
-                android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-                android:background="@color/bg_card" 
+                android:id="@+id/fixed_layout"
+                android:background="@color/card_bg"
+                android:paddingLeft="?android:listPreferredItemPaddingLeft"
+                android:paddingRight="?android:listPreferredItemPaddingRight"
                 android:clipToPadding="false"
-                android:baselineAligned="false">
-
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:minHeight="?android:listPreferredItemHeightSmall"
+                android:paddingStart="?android:listPreferredItemPaddingStart"
+                android:paddingEnd="?android:listPreferredItemPaddingEnd">
+                
                 <RelativeLayout
-                    android:layout_width="0dp"
+                    android:paddingTop="16.0dip"
+                    android:paddingBottom="16.0dip"
+                    android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp">
-
+                    android:layout_weight="1.0">
+                    
+                    <ImageView
+                        android:gravity="start"
+                        android:layout_gravity="start|center"
+                        android:id="@android:id/icon"
+                        android:layout_width="30.0dip"
+                        android:layout_height="30.0dip"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_rising"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16.0dip"
+                        android:tint="?android:textColorPrimary"/>
+                        
                     <TextView
+                        android:textAppearance="?android:textAppearanceListItem"
+                        android:ellipsize="marquee"
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLines="2"
                         android:text="@string/afterlife_maintainer"
-                        android:textAppearance="?android:attr/textAppearanceListItem"
-                        android:ellipsize="marquee"/>
-
+                        android:layout_toRightOf="@android:id/icon"
+                        android:maxLines="2"/>
+                        
                     <TextView
+                        android:textColor="?android:textColorSecondary"
+                        android:layout_gravity="start"
                         android:id="@+id/maintainer_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="10"
                         android:layout_below="@+id/title"
                         android:layout_alignLeft="@+id/title"
-                        android:layout_alignStart="@+id/title"
-                        android:layout_gravity="start"
+                        android:layout_toRightOf="@android:id/icon"
                         android:textAlignment="viewStart"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:maxLines="10"
+                        android:layout_alignStart="@+id/title"
                         style="@style/PreferenceSummaryTextStyle"/>
-
+                        
                 </RelativeLayout>
-
-                <!-- Preference should place its actual preference widget here. -->
+                
                 <LinearLayout
+                    android:gravity="end|center"
+                    android:orientation="vertical"
+                    android:paddingLeft="16.0dip"
+                    android:paddingRight="0.0dip"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="end|center_vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingStart="16dp"
-                    android:paddingRight="0dp"
-                    android:paddingEnd="0dp"
-                    android:orientation="vertical">
-                    <ImageView 
-                        android:id="@+id/expand_button" 
-                        android:src="@drawable/ic_expand" 
-                        android:layout_width="16.0dip" 
-                        android:layout_height="16.0dip"  />
+                    android:layout_height="fill_parent"
+                    android:paddingStart="16.0dip"
+                    android:paddingEnd="0.0dip">
+                    
+                    <ImageView
+                        android:id="@+id/expand_button"
+                        android:layout_width="16.0dip"
+                        android:layout_height="16.0dip"
+                        android:src="@drawable/ic_expand"
+                        android:tint="?android:textColorPrimary"/>
+                        
                 </LinearLayout>
-
+                
             </LinearLayout>
-
+            
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
