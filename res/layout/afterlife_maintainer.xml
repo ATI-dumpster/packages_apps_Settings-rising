@@ -42,7 +42,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:id="@+id/hidden_view"
-                android:background="@color/card_bg"
+                android:background="@color/user_crd_bg"
                 android:visibility="gone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:id="@+id/fixed_layout"
-                android:background="@color/card_bg"
+                android:background="@color/user_crd_bg"
                 android:paddingLeft="?android:listPreferredItemPaddingLeft"
                 android:paddingRight="?android:listPreferredItemPaddingRight"
                 android:clipToPadding="false"
