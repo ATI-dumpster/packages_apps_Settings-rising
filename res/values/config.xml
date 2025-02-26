@@ -16,16 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Use a boolean resource instead of feature -->
-    <bool name="config_enable_highlight_cards">true</bool>
-
-    <!-- Use string resources for paths and keys (already correct) -->
-    <string name="highlight_cards_data_path">highlight_cards_data.xml</string>
-    <string name="highlight_cards_prefs_key">highlight_cards_preferences</string>
-
-    <!-- Use integer instead of long -->
-    <integer name="highlight_cards_min_refresh_interval_ms">3600000</integer>
-
     <!-- Default min refresh rate -->
     <integer name="default_min_refresh_rate" translatable="false">60</integer>
 
