@@ -41,6 +41,15 @@
 
     </com.android.settings.preferences.AutoHidePreferenceCategory>
 
+    <com.android.settings.widget.HighlightHomepagePreference
+        android:fragment="com.rising.settings.PersonalizationsFragment"
+        android:icon="@drawable/ic_settings_cogs"
+        android:key="top_level_personalizations"
+        android:order="-151"
+        android:title="@string/rising_settings_title"
+        android:summary="@string/rising_settings_summary"
+        settings:controller="com.crdroid.settings.TopLevelSettingsPreferenceController"/>
+
     <com.android.settings.utils.SystemStatsPreference
         android:order="-140"
         android:key="first_settings_circle_cards"
@@ -76,15 +85,6 @@
         android:order="-125"
         android:key="top_level_personalize_category"
         android:layout="@layout/settingslib_preference_category_no_title">
-
-        <com.android.settings.widget.HomepagePreference
-            android:fragment="com.rising.settings.PersonalizationsFragment"
-            android:icon="@drawable/ic_settings_cogs"
-            android:key="top_level_personalizations"
-            android:order="-63"
-            android:title="@string/rising_settings_title"
-            android:summary="@string/rising_settings_summary"
-            settings:controller="com.rising.settings.TopLevelSettingsPreferenceController"/>
 
         <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.DisplaySettings"
