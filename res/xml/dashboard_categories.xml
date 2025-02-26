@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dashboard category -->
+<dashboard-categories
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Add this to your existing dashboard_categories.xml -->
+    <dashboard-category
+        android:id="@+id/highlight_cards_category"
+        android:key="highlight_cards_category"
+        android:title="@string/highlight_cards_title"
+        android:order="-10">  <!-- High negative value to ensure it appears at the top -->
+        
+        <dashboard-tile
+            android:id="@+id/highlight_cards_tile"
+            android:icon="@drawable/ic_settings_highlight"
+            android:key="highlight_cards"
+            android:fragment="com.android.settings.HighlightCardsFragment"
+            android:title="@string/highlight_cards_title"
+            android:summary="@string/highlight_cards_summary" />
+    </dashboard-category>
+</dashboard-categories>

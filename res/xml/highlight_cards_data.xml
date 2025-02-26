@@ -1,0 +1,51 @@
+<highlight-cards>
+    <!-- Battery optimization highlight card -->
+    <card
+        id="battery_optimization"
+        title="@string/battery_optimization_title"
+        summary="@string/battery_optimization_summary"
+        icon="@drawable/ic_battery_optimization"
+        action_title="@string/optimize_now"
+        action_intent="com.android.settings.BATTERY_OPTIMIZATION"
+        background="@drawable/card_background_blue" />
+        
+    <!-- Security check highlight card -->
+    <card
+        id="security_check"
+        title="@string/security_check_title"
+        summary="@string/security_check_summary"
+        icon="@drawable/ic_security_check"
+        action_title="@string/check_now"
+        action_intent="com.android.settings.SECURITY_DASHBOARD"
+        background="@drawable/card_background_green" />
+        
+    <!-- Storage cleanup highlight card -->
+    <card
+        id="storage_cleanup"
+        title="@string/storage_cleanup_title"
+        summary="@string/storage_cleanup_summary"
+        icon="@drawable/ic_storage_cleanup"
+        action_title="@string/clean_now"
+        action_intent="com.android.settings.STORAGE_DASHBOARD"
+        background="@drawable/card_background_orange" />
+        
+    <!-- System update highlight card -->
+    <card
+        id="system_update"
+        title="@string/system_update_title"
+        summary="@string/system_update_summary"
+        icon="@drawable/ic_system_update"
+        action_title="@string/check_for_updates"
+        action_intent="com.android.settings.SYSTEM_UPDATE_SETTINGS"
+        background="@drawable/card_background_purple" />
+        
+    <!-- Performance mode highlight card -->
+    <card
+        id="performance_mode"
+        title="@string/performance_mode_title"
+        summary="@string/performance_mode_summary"
+        icon="@drawable/ic_performance_mode"
+        action_title="@string/configure_performance"
+        action_intent="com.android.settings.PERFORMANCE_SETTINGS"
+        background="@drawable/card_background_red" />
+</highlight-cards>

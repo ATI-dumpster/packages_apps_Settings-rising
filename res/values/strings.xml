@@ -14,6 +14,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="highlight_cards_title">Highlights</string>
+    <string name="highlight_cards_summary">Quick access to important settings</string>
+    <string name="highlight_cards_toggle_title">Enable highlight cards</string>
+    <string name="highlight_cards_toggle_summary">Show personalized suggestion cards</string>
+    <string name="highlight_cards_refresh_interval_title">Change frequency</string>
+
     <!-- Strings for Dialog yes button -->
     <string name="yes">"Yes"</string>
     <!-- Strings for Dialog no button -->
