@@ -38,14 +38,14 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         "depth_wallpaper_subject_image_uri", "depth_wallpaper_opacity", "depth_wallpaper_offset_x", 
         "statusbar_battery_bar", "statusbar_battery_bar_thickness", "statusbar_battery_bar_style",
         "shake_gestures_enabled", "shake_gestures_action", "shake_gestures_intensity",
-        "three_finger_gesture_action", "three_finger_long_press_action", "hardware_keys_disable",
+        "three_finger_gesture_action", "three_finger_long_press_action",
         "theme_style", "notification_sound_vib_screen_on", "alert_slider_notifications",
-        "notification_lights", "sensor_block", "status_bar_icons", "status_bar_clock",
+        "notification_lights", "status_bar_icons", "status_bar_clock",
         "double_tap_sleep_gesture", "status_bar_brightness_control", "qs_quick_pulldown",
         "rising_changelog", "custom_aod_image_enabled", "lockscreen_custom_image",
-        "monet_engine", "android.theme.customization.navbar", "settings_theme_style",
-        "charging_animation", "screen_off_animation", "adaptive_playback_timeout",
-        "gaming_mode", "gestures", "navigation", "security", "sound_engine", "pulse_settings"
+        "monet_engine", "android.theme.customization.navbar",
+        "screen_off_animation", "adaptive_playback_timeout",
+        "gestures", "navigation", "security", "sound_engine", "pulse_settings"
     };
 
     // List of available drawable resources to use
@@ -61,6 +61,42 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         android.R.drawable.ic_menu_help,
         android.R.drawable.ic_menu_info_details
     };
+
+    // Mapping setting keys to their corresponding activities
+    private static final Map<String, String> settingToActivityMap = new HashMap<String, String>() {{
+        put("depth_wallpaper_subject_image_uri", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
+        put("depth_wallpaper_opacity", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
+        put("depth_wallpaper_offset_x", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
+        put("statusbar_battery_bar", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
+        put("statusbar_battery_bar_thickness", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
+        put("statusbar_battery_bar_style", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
+        put("shake_gestures_enabled", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("shake_gestures_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("shake_gestures_intensity", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("three_finger_gesture_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("three_finger_long_press_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("theme_style", "com.android.settings.Settings$PersonalizationsThemesActivity");
+        put("notification_sound_vib_screen_on", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
+        put("alert_slider_notifications", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
+        put("notification_lights", "com.android.settings.Settings$PersonalizationsNotificationSettingsActivity");
+        put("status_bar_icons", "com.android.settings.Settings$PersonalizationsStatusBarSettingsActivity");
+        put("status_bar_clock", "com.android.settings.Settings$PersonalizationsStatusBarSettingsActivity");
+        put("double_tap_sleep_gesture", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("status_bar_brightness_control", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
+        put("qs_quick_pulldown", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
+        put("rising_changelog", "com.rising.settings.fragments.about.ChangelogActivity");
+        put("custom_aod_image_enabled", "com.android.settings.Settings$PersonalizationsLockscreenSettingsActivity");
+        put("lockscreen_custom_image", "com.android.settings.Settings$PersonalizationsLockscreenSettingsActivity");
+        put("monet_engine", "com.android.settings.Settings$PersonalizationsMonetEngineActivity");
+        put("android.theme.customization.navbar", "com.android.settings.Settings$PersonalizationsNavbarCustomizationActivity");
+        put("screen_off_animation", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
+        put("adaptive_playback_timeout", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
+        put("gestures", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
+        put("navigation", "com.android.settings.Settings$PersonalizationsNavigationSettingsActivity");
+        put("security", "com.android.settings.Settings$PersonalizationsSecuritySettingsActivity");
+        put("sound_engine", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
+        put("pulse_settings", "com.android.settings.Settings$PersonalizationsPulseSettingsActivity");
+    }};
 
     public HighlightHomepagePreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -114,13 +150,11 @@ public class HighlightHomepagePreference extends HomepagePreference implements
 
     // Format a settings key into a readable title
     private String formatKeyToTitle(String key) {
-        // Remove any prefixes like "android.theme.customization."
         String processedKey = key;
         if (key.contains(".")) {
             processedKey = key.substring(key.lastIndexOf(".") + 1);
         }
 
-        // Replace underscores with spaces and capitalize each word
         String[] words = processedKey.split("_");
         StringBuilder title = new StringBuilder();
 
@@ -147,22 +181,6 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(cardCount);
         viewPager.setPageTransformer(new MarginPageTransformer((int) mContext.getResources().getDimension(R.dimen.page_margin)));
-        viewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                viewPager.beginFakeDrag();
-                viewPager.fakeDragBy(-10f);
-                viewPager.endFakeDrag();
-                viewPager.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.beginFakeDrag();
-                        viewPager.fakeDragBy(10f);
-                        viewPager.endFakeDrag();
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -203,13 +221,6 @@ public class HighlightHomepagePreference extends HomepagePreference implements
     private static class HighlightCardAdapter extends RecyclerView.Adapter<HighlightCardAdapter.HighlightCardViewHolder> {
 
         private final List<HighlightCard> mHighlightCards;
-        private static final int[] HIGHLIGHT_CARD_STYLES = {
-                R.layout.highlight_card_default,
-                R.layout.highlight_card,
-                R.layout.highlight_card_material,
-                R.layout.highlight_card_oos,
-                R.layout.highlight_card_colorful
-        };
 
         public HighlightCardAdapter(List<HighlightCard> highlightCards) {
             mHighlightCards = highlightCards;
@@ -219,8 +230,7 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         @Override
         public HighlightCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             Context context = parent.getContext();
-            int theme = Settings.System.getInt(context.getContentResolver(), "settings_theme_style", 0);
-            View view = LayoutInflater.from(context).inflate(HIGHLIGHT_CARD_STYLES[theme], parent, false);
+            View view = LayoutInflater.from(context).inflate(R.layout.highlight_card_default, parent, false);
             return new HighlightCardViewHolder(view);
         }
 
@@ -230,88 +240,23 @@ public class HighlightHomepagePreference extends HomepagePreference implements
             holder.title.setText(card.getTitle());
             holder.summary.setText(card.getSummary());
             holder.icon.setImageResource(card.getIconResId());
-            ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
-            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-            layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
-            holder.itemView.setLayoutParams(layoutParams);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
                     try {
-                        // General intent for settings
-                        Intent intent = new Intent();
-                        String key = card.getSettingKey();
-
-                        // Match setting key to the correct activity
-                        switch (key) {
-                            case "depth_wallpaper_subject_image_uri":
-                            case "depth_wallpaper_opacity":
-                            case "depth_wallpaper_offset_x":
-                            case "theme_style":
-                            case "monet_engine":
-                            case "android.theme.customization.navbar":
-                            case "settings_theme_style":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$DisplaySettingsActivity");
-                                break;
-
-                            case "statusbar_battery_bar":
-                            case "statusbar_battery_bar_thickness":
-                            case "statusbar_battery_bar_style":
-                            case "charging_animation":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$PowerUsageSummaryActivity");
-                                break;
-
-                            case "shake_gestures_enabled":
-                            case "shake_gestures_action":
-                            case "shake_gestures_intensity":
-                            case "three_finger_gesture_action":
-                            case "three_finger_long_press_action":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$GestureSettingsActivity");
-                                break;
-
-                            case "sound_engine":
-                            case "notification_sound_vib_screen_on":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$SoundSettingsActivity");
-                                break;
-
-                            case "security":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$SecurityDashboardActivity");
-                                break;
-
-                            case "status_bar_icons":
-                            case "status_bar_clock":
-                            case "double_tap_sleep_gesture":
-                            case "status_bar_brightness_control":
-                            case "qs_quick_pulldown":
-                            case "rising_changelog":
-                            case "notification_lights":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$StatusBarSettingsActivity");
-                                break;
-
-                            case "gaming_mode":
-                            case "gestures":
-                            case "navigation":
-                                intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$GamingModeSettingsActivity");
-                                break;
-
-                            default:
-                                // Default to System Settings if no match
-                                intent.setAction(Settings.ACTION_SETTINGS);
-                                break;
+                        // Get activity class for this setting key
+                        String activity = settingToActivityMap.get(card.getSettingKey());
+                        if (activity != null) {
+                            Intent intent = new Intent();
+                            intent.setClassName(context.getPackageName(), activity);
+                            context.startActivity(intent);
+                        } else {
+                            // If no mapping found, fall back to the main settings
+                            Intent fallbackIntent = new Intent(Settings.ACTION_SETTINGS);
+                            context.startActivity(fallbackIntent);
                         }
-
-                        // Start the activity
-                        context.startActivity(intent);
-
                     } catch (Exception e) {
                         Log.e(TAG, "Failed to start activity for setting: " + card.getSettingKey(), e);
                         // Fallback to system settings if the specific intent fails

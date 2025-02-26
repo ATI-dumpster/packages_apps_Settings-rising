@@ -222,6 +222,85 @@
                        android:value="com.rising.settings.fragments.Wallpaper" />
         </activity>
 
+        <!-- Random features Activities --> 
+        <activity android:name="Settings$PersonalizationsWallpaperSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.WallpaperDepth" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsBatterySettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.statusbar.BatteryBar" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsGestureSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.Gestures" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsSoundSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.sound.SoundEngine" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsNotificationSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.Notifications" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsStatusBarSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.statusbar.Clock" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsDisplaySettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.Themes" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsLockscreenSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.lockscreen.doze.AODSettings" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsMonetEngineActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.MonetSettings" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsNavbarCustomizationActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.ui.NavbarStyles" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsNavigationSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.Navigation" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsSecuritySettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.Security" />
+        </activity>
+
+        <activity android:name="Settings$PersonalizationsPulseSettingsActivity"
+                  android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.rising.settings.fragments.sound.PulseSettings" />
+        </activity>
+
         <receiver
             android:name=".fuelgauge.PowerModeBootCompletedReceiver"
             android:enabled="true"
