@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2023-2024 The risingOS Android Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.android.settings.widget;
 
 import android.content.Context;
@@ -47,7 +32,7 @@ public class HighlightHomepagePreference extends HomepagePreference implements
     private final HomepagePreferenceLayoutHelper mHelper;
     private Context mContext;
     private static final Random RANDOM = new Random();
-    
+
     // List of available setting keys to choose from
     private static final String[] AVAILABLE_KEYS = {
         "depth_wallpaper_subject_image_uri", "depth_wallpaper_opacity", "depth_wallpaper_offset_x", 
@@ -62,7 +47,7 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         "charging_animation", "screen_off_animation", "adaptive_playback_timeout",
         "gaming_mode", "gestures", "navigation", "security", "sound_engine", "pulse_settings"
     };
-    
+
     // List of available drawable resources to use
     private static final int[] AVAILABLE_DRAWABLES = {
         R.drawable.ic_custom_settings_wallpaper_white,
@@ -108,25 +93,25 @@ public class HighlightHomepagePreference extends HomepagePreference implements
     private void init() {
         setLayoutResource(R.layout.top_level_preference_highlight_card);
     }
-    
+
     // Generate a random list of highlight cards based on available settings
     private List<HighlightCard> generateRandomHighlightCards(int count) {
         List<String> keys = new ArrayList<>(Arrays.asList(AVAILABLE_KEYS));
         Collections.shuffle(keys);
-        
+
         List<HighlightCard> cards = new ArrayList<>();
         for (int i = 0; i < Math.min(count, keys.size()); i++) {
             String key = keys.get(i);
             String formattedTitle = formatKeyToTitle(key);
             String summary = "Customize your " + formattedTitle.toLowerCase() + " settings";
             int iconResId = AVAILABLE_DRAWABLES[RANDOM.nextInt(AVAILABLE_DRAWABLES.length)];
-            
+
             cards.add(new HighlightCard(formattedTitle, summary, iconResId, key));
         }
-        
+
         return cards;
     }
-    
+
     // Format a settings key into a readable title
     private String formatKeyToTitle(String key) {
         // Remove any prefixes like "android.theme.customization."
@@ -134,11 +119,11 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         if (key.contains(".")) {
             processedKey = key.substring(key.lastIndexOf(".") + 1);
         }
-        
+
         // Replace underscores with spaces and capitalize each word
         String[] words = processedKey.split("_");
         StringBuilder title = new StringBuilder();
-        
+
         for (String word : words) {
             if (word.length() > 0) {
                 title.append(Character.toUpperCase(word.charAt(0)))
@@ -146,18 +131,18 @@ public class HighlightHomepagePreference extends HomepagePreference implements
                      .append(" ");
             }
         }
-        
+
         return title.toString().trim();
     }
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         ViewPager2 viewPager = holder.itemView.findViewById(R.id.card_holders);
-        
+
         // Generate 3-5 random highlight cards
         int cardCount = RANDOM.nextInt(3) + 3; // Between 3 and 5 cards
         List<HighlightCard> highlightCards = generateRandomHighlightCards(cardCount);
-        
+
         HighlightCardAdapter adapter = new HighlightCardAdapter(highlightCards);
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(cardCount);
@@ -209,7 +194,7 @@ public class HighlightHomepagePreference extends HomepagePreference implements
         public int getIconResId() {
             return iconResId;
         }
-        
+
         public String getSettingKey() {
             return settingKey;
         }
@@ -249,44 +234,87 @@ public class HighlightHomepagePreference extends HomepagePreference implements
             layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
             layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
             holder.itemView.setLayoutParams(layoutParams);
-            
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
                     try {
-                        // Create a general intent for settings and put the setting key as an extra
+                        // General intent for settings
                         Intent intent = new Intent();
-                        intent.setClassName("com.android.settings", 
-                            "com.android.settings.Settings$SystemDashboardActivity");
-                        intent.putExtra("setting_key", card.getSettingKey());
-                        
-                        // Determine specific intent based on the setting key
                         String key = card.getSettingKey();
-                        if (key.contains("wallpaper") || key.contains("theme") || key.contains("style")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$DisplaySettingsActivity");
-                        } else if (key.contains("battery") || key.contains("charging")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$PowerUsageSummaryActivity");
-                        } else if (key.contains("gesture") || key.contains("navigation")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$GestureSettingsActivity");
-                        } else if (key.contains("sound") || key.contains("vibrate")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$SoundSettingsActivity");
-                        } else if (key.contains("security") || key.contains("lockscreen")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$SecurityDashboardActivity");
-                        } else if (key.contains("statusbar") || key.contains("notification")) {
-                            intent.setClassName("com.android.settings",
-                                "com.android.settings.Settings$StatusBarSettingsActivity");
+
+                        // Match setting key to the correct activity
+                        switch (key) {
+                            case "depth_wallpaper_subject_image_uri":
+                            case "depth_wallpaper_opacity":
+                            case "depth_wallpaper_offset_x":
+                            case "theme_style":
+                            case "monet_engine":
+                            case "android.theme.customization.navbar":
+                            case "settings_theme_style":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$DisplaySettingsActivity");
+                                break;
+
+                            case "statusbar_battery_bar":
+                            case "statusbar_battery_bar_thickness":
+                            case "statusbar_battery_bar_style":
+                            case "charging_animation":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$PowerUsageSummaryActivity");
+                                break;
+
+                            case "shake_gestures_enabled":
+                            case "shake_gestures_action":
+                            case "shake_gestures_intensity":
+                            case "three_finger_gesture_action":
+                            case "three_finger_long_press_action":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$GestureSettingsActivity");
+                                break;
+
+                            case "sound_engine":
+                            case "notification_sound_vib_screen_on":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$SoundSettingsActivity");
+                                break;
+
+                            case "security":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$SecurityDashboardActivity");
+                                break;
+
+                            case "status_bar_icons":
+                            case "status_bar_clock":
+                            case "double_tap_sleep_gesture":
+                            case "status_bar_brightness_control":
+                            case "qs_quick_pulldown":
+                            case "rising_changelog":
+                            case "notification_lights":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$StatusBarSettingsActivity");
+                                break;
+
+                            case "gaming_mode":
+                            case "gestures":
+                            case "navigation":
+                                intent.setClassName("com.android.settings",
+                                    "com.android.settings.Settings$GamingModeSettingsActivity");
+                                break;
+
+                            default:
+                                // Default to System Settings if no match
+                                intent.setAction(Settings.ACTION_SETTINGS);
+                                break;
                         }
-                        
+
+                        // Start the activity
                         context.startActivity(intent);
+
                     } catch (Exception e) {
                         Log.e(TAG, "Failed to start activity for setting: " + card.getSettingKey(), e);
-                        // Fallback to system settings
+                        // Fallback to system settings if the specific intent fails
                         Intent fallbackIntent = new Intent(Settings.ACTION_SETTINGS);
                         context.startActivity(fallbackIntent);
                     }
