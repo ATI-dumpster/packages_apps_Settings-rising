@@ -149,6 +149,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.rising.settings.fragments.ui.NavbarStylesActivity"
+                android:label="@string/changelog_rising_title"
+                android:theme="@style/Theme.SubSettingsBase"
+                android:enabled="true"
+                android:exported="true"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+            <intent-filter android:priority="67">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />  
+            </intent-filter>
+        </activity>
         
         <!-- LW -->
         <activity android:name="Settings$PersonalizationsWidgetsActivity"
@@ -222,83 +235,85 @@
                        android:value="com.rising.settings.fragments.Wallpaper" />
         </activity>
 
-        <!-- Random features Activities --> 
+        <!-- Random features Activities -->
         <activity android:name="Settings$PersonalizationsWallpaperSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.WallpaperDepth" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.WallpaperDepth" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsBatterySettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.statusbar.BatteryBar" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.statusbar.BatteryBar" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsGestureSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.Gestures" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.Gestures" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsSoundSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.sound.SoundEngine" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.sound.SoundEngine" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsNotificationSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.Notifications" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.Notifications" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsStatusBarSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.statusbar.Clock" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.statusbar.Clock" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsDisplaySettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.Themes" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.Themes" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsLockscreenSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.lockscreen.doze.AODSettings" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.lockscreen.doze.AODSettings" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsMonetEngineActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.MonetSettings" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.MonetSettings" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsNavbarCustomizationActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.ui.NavbarStyles" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.ui.NavbarStyles" />
         </activity>
 
-        <activity android:name="Settings$PersonalizationsNavigationSettingsActivity"
+        <activity android:name="Settings$PersonalizationsNavigationActivity"
+                  android:label="@string/doze_display_title"
+                  android:icon="@drawable/ic_color_bucket"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.Navigation" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.Navigation" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsSecuritySettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.Security" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.Security" />
         </activity>
 
         <activity android:name="Settings$PersonalizationsPulseSettingsActivity"
                   android:exported="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.rising.settings.fragments.sound.PulseSettings" />
+                <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                           android:value="com.rising.settings.fragments.sound.PulseSettings" />
         </activity>
 
         <receiver

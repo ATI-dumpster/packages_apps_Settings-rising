@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 public class HighlightHomepagePreference extends HomepagePreference implements
         HomepagePreferenceLayoutHelper.HomepagePreferenceLayout {
@@ -64,38 +66,38 @@ public class HighlightHomepagePreference extends HomepagePreference implements
 
     // Mapping setting keys to their corresponding activities
     private static final Map<String, String> settingToActivityMap = new HashMap<String, String>() {{
-        put("depth_wallpaper_subject_image_uri", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
-        put("depth_wallpaper_opacity", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
-        put("depth_wallpaper_offset_x", "com.android.settings.Settings$PersonalizationsWallpaperSettingsActivity");
-        put("statusbar_battery_bar", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
-        put("statusbar_battery_bar_thickness", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
-        put("statusbar_battery_bar_style", "com.android.settings.Settings$PersonalizationsBatterySettingsActivity");
-        put("shake_gestures_enabled", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("shake_gestures_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("shake_gestures_intensity", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("three_finger_gesture_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("three_finger_long_press_action", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("theme_style", "com.android.settings.Settings$PersonalizationsThemesActivity");
-        put("notification_sound_vib_screen_on", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
-        put("alert_slider_notifications", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
-        put("notification_lights", "com.android.settings.Settings$PersonalizationsNotificationSettingsActivity");
-        put("status_bar_icons", "com.android.settings.Settings$PersonalizationsStatusBarSettingsActivity");
-        put("status_bar_clock", "com.android.settings.Settings$PersonalizationsStatusBarSettingsActivity");
-        put("double_tap_sleep_gesture", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("status_bar_brightness_control", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
-        put("qs_quick_pulldown", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
+        put("depth_wallpaper_subject_image_uri", "com.rising.settings.fragments.WallpaperDepth");
+        put("depth_wallpaper_opacity", "com.rising.settings.fragments.WallpaperDepth");
+        put("depth_wallpaper_offset_x", "com.rising.settings.fragments.WallpaperDepth");
+        put("statusbar_battery_bar", "com.rising.settings.fragments.statusbar.BatteryBar");
+        put("statusbar_battery_bar_thickness", "com.rising.settings.fragments.statusbar.BatteryBar");
+        put("statusbar_battery_bar_style", "com.rising.settings.fragments.statusbar.BatteryBar");
+        put("shake_gestures_enabled", "com.rising.settings.fragments.Gestures");
+        put("shake_gestures_action", "com.rising.settings.fragments.Gestures");
+        put("shake_gestures_intensity", "com.rising.settings.fragments.Gestures");
+        put("three_finger_gesture_action", "com.rising.settings.fragments.Gestures");
+        put("three_finger_long_press_action", "com.rising.settings.fragments.Gestures");
+        put("theme_style", "com.rising.settings.fragments.Themes");
+        put("notification_sound_vib_screen_on", "com.rising.settings.fragments.sound.SoundEngine");
+        put("alert_slider_notifications", "com.rising.settings.fragments.sound.SoundEngine");
+        put("notification_lights", "com.rising.settings.fragments.Notifications");
+        put("status_bar_icons", "com.rising.settings.fragments.statusbar.Clock");
+        put("status_bar_clock", "com.rising.settings.fragments.statusbar.Clock");
+        put("double_tap_sleep_gesture", "com.rising.settings.fragments.Gestures");
+        put("status_bar_brightness_control", "com.rising.settings.fragments.Themes");
+        put("qs_quick_pulldown", "com.rising.settings.fragments.Themes");
         put("rising_changelog", "com.rising.settings.fragments.about.ChangelogActivity");
-        put("custom_aod_image_enabled", "com.android.settings.Settings$PersonalizationsLockscreenSettingsActivity");
-        put("lockscreen_custom_image", "com.android.settings.Settings$PersonalizationsLockscreenSettingsActivity");
-        put("monet_engine", "com.android.settings.Settings$PersonalizationsMonetEngineActivity");
-        put("android.theme.customization.navbar", "com.android.settings.Settings$PersonalizationsNavbarCustomizationActivity");
-        put("screen_off_animation", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
-        put("adaptive_playback_timeout", "com.android.settings.Settings$PersonalizationsDisplaySettingsActivity");
-        put("gestures", "com.android.settings.Settings$PersonalizationsGestureSettingsActivity");
-        put("navigation", "com.android.settings.Settings$PersonalizationsNavigationSettingsActivity");
-        put("security", "com.android.settings.Settings$PersonalizationsSecuritySettingsActivity");
-        put("sound_engine", "com.android.settings.Settings$PersonalizationsSoundSettingsActivity");
-        put("pulse_settings", "com.android.settings.Settings$PersonalizationsPulseSettingsActivity");
+        put("custom_aod_image_enabled", "com.rising.settings.fragments.lockscreen.doze.AODSettings");
+        put("lockscreen_custom_image", "com.rising.settings.fragments.lockscreen.doze.AODSettings");
+        put("monet_engine", "com.rising.settings.fragments.MonetSettings");
+        put("android.theme.customization.navbar", "com.rising.settings.fragments.ui.NavbarStyles");
+        put("screen_off_animation", "com.rising.settings.fragments.Themes");
+        put("adaptive_playback_timeout", "com.rising.settings.fragments.Themes");
+        put("gestures", "com.rising.settings.fragments.Gestures");
+        put("navigation", "com.rising.settings.fragments.Navigation");
+        put("security", "com.rising.settings.fragments.about.ChangelogActivity");
+        put("sound_engine", "com.rising.settings.fragments.ui.NavbarStyles");
+        put("pulse_settings", "com.rising.settings.fragments.ui.NavbarStyles");
     }};
 
     public HighlightHomepagePreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
